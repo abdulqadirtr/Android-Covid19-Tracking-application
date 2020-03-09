@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ImageSliderActivity.DetailActivity">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="20dp"
+        android:layout_margin="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/text"
+                android:scaleType="centerCrop"
+                android:text="Stay Safe Everyone"
+                android:textStyle="bold"
+                android:textSize="48dp"
+                android:textColor="@color/color1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+            <ImageView
+                android:id="@+id/p1"
+                app:srcCompat="@drawable/p1"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/color2"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <TextView
+                android:scaleType="centerCrop"
+                android:text="Keep Distance of Minimum 1M"
+                android:textStyle="bold"
+                android:textSize="36dp"
+                android:textColor="@color/color1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <ImageView
+                android:id="@+id/p2"
+                app:srcCompat="@drawable/p2"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/color2"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <TextView
+                android:scaleType="centerCrop"
+                android:text="Use Mask and If you see someone coughing give him Mask"
+                android:textStyle="bold"
+                android:textSize="36dp"
+                android:textColor="@color/color1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <ImageView
+                android:id="@+id/p3"
+                app:srcCompat="@drawable/p3"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/color2"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <TextView
+                android:scaleType="centerCrop"
+                android:text="Avoid Crowd"
+                android:textStyle="bold"
+                android:textSize="36dp"
+                android:textColor="@color/color1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <ImageView
+                android:id="@+id/p4"
+                app:srcCompat="@drawable/p4"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/color2"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <TextView
+                android:scaleType="centerCrop"
+                android:text="Wash your hands after and before touching any thing"
+                android:textStyle="bold"
+                android:textSize="36dp"
+                android:textColor="@color/color1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <ImageView
+                android:id="@+id/p5"
+                app:srcCompat="@drawable/p5"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/color2"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <TextView
+                android:scaleType="centerCrop"
+                android:text="Wash your Hands before touching your eyes, face, nose and mouth"
+                android:textStyle="bold"
+                android:textSize="36dp"
+                android:textColor="@color/color1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <ImageView
+                android:id="@+id/p6"
+                app:srcCompat="@drawable/p6"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/color2"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <TextView
+                android:scaleType="centerCrop"
+                android:text="Use Soap to wash your hands, Viruse can stay Upto 24 hours"
+                android:textStyle="bold"
+                android:textSize="36dp"
+                android:textColor="@color/color1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <ImageView
+                android:id="@+id/p7"
+                app:srcCompat="@drawable/p7"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/color2"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <TextView
+                android:scaleType="centerCrop"
+                android:text="Use soap until your elbow"
+                android:textStyle="bold"
+                android:textSize="36dp"
+                android:textColor="@color/color1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <ImageView
+                android:id="@+id/p8"
+                app:srcCompat="@drawable/p8"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/color2"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <TextView
+                android:scaleType="centerCrop"
+                android:text="Clean your hands from backside too and between the fingers"
+                android:textStyle="bold"
+                android:textSize="36dp"
+                android:textColor="@color/color1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <ImageView
+                android:id="@+id/p9"
+                app:srcCompat="@drawable/p9"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/color2"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <TextView
+                android:scaleType="centerCrop"
+                android:text="Don't use Mask for too long"
+                android:textStyle="bold"
+                android:textSize="36dp"
+                android:textColor="@color/color1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <ImageView
+            android:id="@+id/p10"
+            app:srcCompat="@drawable/p10"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/color2"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <TextView
+                android:scaleType="centerCrop"
+                android:text="Use your own stuff keep it separatee"
+                android:textStyle="bold"
+                android:textSize="36dp"
+                android:textColor="@color/color1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <ImageView
+                android:id="@+id/p11"
+                app:srcCompat="@drawable/p11"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</ScrollView>

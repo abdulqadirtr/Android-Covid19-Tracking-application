@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:background="#FFFFFF"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:text="Gender"
+                ></TextView>
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="0dp" />
+            <Spinner
+                android:id="@+id/spinner_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:spinnerMode="dropdown"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:text="Age"
+                ></TextView>
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="0dp" />
+
+            <Spinner
+                android:id="@+id/spinner_age"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:spinnerMode="dropdown"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="30dp" />
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:gravity="center"
+    android:background="#F8F8FF"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    >
+    <TextView
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:text="Do you have high fever?"
+        ></TextView>
+    <TextView
+        android:layout_width="40dp"
+        android:layout_height="0dp" />
+    <Spinner
+        android:id="@+id/fever"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:textColor="@color/color2"
+        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+        />
+ </LinearLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#F8F8FF"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+            <TextView
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="15dp"
+                android:gravity="center"
+                android:text="How Often do you Cough?"
+                ></TextView>
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="0dp" />
+            <Spinner
+                android:id="@+id/cough"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:textColor="@color/color2"
+                android:theme="@android:style/Theme.Holo.Light.DarkActionBar"/>
+
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#F8F8FF"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+            <TextView
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="15dp"
+                android:gravity="center"
+                android:text="Do you have shortness of breath?"
+                ></TextView>
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="0dp" />
+            <Spinner
+                android:id="@+id/breath"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:textColor="@color/color2"
+                android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#F8F8FF"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+            <TextView
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:text="Do you have Headache?"
+                ></TextView>
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="0dp" />
+            <Spinner
+                android:id="@+id/headach"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:textColor="@color/color2"
+                android:theme="@android:style/Theme.Holo.Light.DarkActionBar"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#F8F8FF"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+            <TextView
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:text="Do you have sore throat?"
+                ></TextView>
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="0dp" />
+            <Spinner
+                android:id="@+id/throat"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:textColor="@color/color2"
+                android:theme="@android:style/Theme.Holo.Light.DarkActionBar"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#F8F8FF"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+            <TextView
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:text="Do you "
+                ></TextView>
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="0dp" />
+            <Spinner
+                android:id="@+id/chestpain"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:textColor="@color/color2"
+                android:theme="@android:style/Theme.Holo.Light.DarkActionBar"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="20dp" />
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Get Details"
+            />
+    </LinearLayout>
+</RelativeLayout>

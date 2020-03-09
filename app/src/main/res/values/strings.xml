@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LearnAndroid</string>
+    <string name="symptoms">Symptoms</string>
+    <string name="prevention">Safety Advice</string>
+    <string name="sick">What to do if you are Sick / Treatment</string>
+    <string name="safety">Safety</string>
+    <string name="action_settings">Settings</string>
+    <string name="web_client_id">136493674292-o6o8tnmnms0ooua17bna9hg229d64oqi.apps.googleusercontent.com</string>
+</resources>

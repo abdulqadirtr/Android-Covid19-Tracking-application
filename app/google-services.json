@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "136493674292",
+    "firebase_url": "https://coronavirus-a4014.firebaseio.com",
+    "project_id": "coronavirus-a4014",
+    "storage_bucket": "coronavirus-a4014.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136493674292:android:e209172b33290ea45b3f61",
+        "android_client_info": {
+          "package_name": "app.easylink.coronavirus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136493674292-o6o8tnmnms0ooua17bna9hg229d64oqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCG1t3phDWRoo3_h9lOo_dTcY3pyhYVmQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136493674292-o6o8tnmnms0ooua17bna9hg229d64oqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    >
+
+    <androidx.cardview.widget.CardView
+
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="10dp"
+        >
+
+        <LinearLayout
+            android:layout_margin="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:orientation="horizontal"
+            android:background="#F5F5F5"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+
+
+            <TextView
+                android:id="@+id/txt_title"
+                android:text="Country"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                />
+                <TextView
+                    android:layout_width="15dp"
+                    android:layout_height="0dp"/>
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_province"
+                android:text="Content"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="0dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+                <TextView
+                    android:id="@+id/text_confirm"
+                    android:text="Content"
+                    android:textSize="16sp"
+                    android:textColor="#FFA500"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="18dp"
+                android:layout_height="0dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_death"
+                    android:text="Content "
+                    android:textSize="15sp"
+                    android:textColor="@color/color1"
+                    android:textStyle="bold"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="8dp"
+                android:layout_height="0dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+
+                <TextView
+                    android:id="@+id/text_recover"
+                    android:text="Content"
+                    android:textSize="15sp"
+                    android:textColor="#556B2F"
+                    android:textStyle="bold"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
