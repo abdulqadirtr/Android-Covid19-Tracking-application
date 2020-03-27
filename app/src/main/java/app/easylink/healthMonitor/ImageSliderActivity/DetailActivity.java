@@ -1,13 +1,14 @@
-package app.easylink.coronavirus.ImageSliderActivity;
+package app.easylink.healthMonitor.ImageSliderActivity;
 
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import app.easylink.coronavirus.R;
+import app.easylink.healthMonitor.R;
 
 public class DetailActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +18,8 @@ public class DetailActivity extends AppCompatActivity {
         textView.setText(getIntent().getStringExtra("param"));
         int id = getIntent().getIntExtra("img", -1);
         imageView.setImageResource(id);
+
+
 
 
 

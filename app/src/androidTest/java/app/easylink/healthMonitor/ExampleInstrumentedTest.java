@@ -1,4 +1,4 @@
-package app.easylink.coronavirus;
+package app.easylink.healthMonitor;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("app.easylink.learnandroid", appContext.getPackageName());
+        assertEquals("app.easylink.coronavirus", appContext.getPackageName());
     }
 }

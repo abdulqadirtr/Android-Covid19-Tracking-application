@@ -1,4 +1,4 @@
-package app.easylink.coronavirus.ImageSliderActivity;
+package app.easylink.healthMonitor.ImageSliderActivity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
-import app.easylink.coronavirus.R;
+import app.easylink.healthMonitor.R;
 
 public class CustomAdapter extends PagerAdapter {
 

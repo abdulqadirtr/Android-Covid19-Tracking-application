@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "136493674292",
-    "firebase_url": "https://coronavirus-a4014.firebaseio.com",
-    "project_id": "coronavirus-a4014",
-    "storage_bucket": "coronavirus-a4014.appspot.com"
+    "project_number": "902936966205",
+    "firebase_url": "https://healthmonitor-ae6e8.firebaseio.com",
+    "project_id": "healthmonitor-ae6e8",
+    "storage_bucket": "healthmonitor-ae6e8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:136493674292:android:e209172b33290ea45b3f61",
+        "mobilesdk_app_id": "1:902936966205:android:c5069b35dc22a9808a2654",
         "android_client_info": {
-          "package_name": "app.easylink.coronavirus"
+          "package_name": "app.easylink.healthMonitor"
         }
       },
       "oauth_client": [
         {
-          "client_id": "136493674292-o6o8tnmnms0ooua17bna9hg229d64oqi.apps.googleusercontent.com",
+          "client_id": "902936966205-ljidptfp7s3mmhkstkjubbb8oe46j2rv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.easylink.healthMonitor",
+            "certificate_hash": "9d7cf5d54b1f024618eb356aff4fac605e120c9b"
+          }
+        },
+        {
+          "client_id": "902936966205-2d4impop4tgqe5p5vqn463utvr8h9arl.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCG1t3phDWRoo3_h9lOo_dTcY3pyhYVmQw"
+          "current_key": "AIzaSyCB_wWSzAfR8WdrrDXgoPBmfBiFhIfaLuY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "136493674292-o6o8tnmnms0ooua17bna9hg229d64oqi.apps.googleusercontent.com",
+              "client_id": "902936966205-2d4impop4tgqe5p5vqn463utvr8h9arl.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

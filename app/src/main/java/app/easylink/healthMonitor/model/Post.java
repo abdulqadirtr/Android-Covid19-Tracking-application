@@ -1,4 +1,4 @@
-package app.easylink.coronavirus.model;
+package app.easylink.healthMonitor.model;
 
 public class Post {
 
@@ -10,6 +10,29 @@ public class Post {
     private float deaths;
     private float recovered;
 
+
+    private float lat;
+    private float lng;
+
+    // Getter Methods
+
+    public float getLat() {
+        return lat;
+    }
+
+    public float getLng() {
+        return lng;
+    }
+
+    // Setter Methods
+
+    public void setLat(float lat) {
+        this.lat = lat;
+    }
+
+    public void setLng(float lng) {
+        this.lng = lng;
+    }
 
     // Getter Methods
 

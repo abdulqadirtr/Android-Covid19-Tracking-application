@@ -1,9 +1,18 @@
 <resources>
-    <string name="app_name">LearnAndroid</string>
+    <string name="app_name">Coronavirus Inspector</string>
     <string name="symptoms">Symptoms</string>
     <string name="prevention">Safety Advice</string>
     <string name="sick">What to do if you are Sick / Treatment</string>
     <string name="safety">Safety</string>
     <string name="action_settings">Settings</string>
-    <string name="web_client_id">136493674292-o6o8tnmnms0ooua17bna9hg229d64oqi.apps.googleusercontent.com</string>
+    <string name="web_client_id">902936966205-2d4impop4tgqe5p5vqn463utvr8h9arl.apps.googleusercontent.com</string>
+
+    <string name="Open">open</string>
+    <string name="Close">close</string>
+    <!-- [START fcm_default_icon_string] -->
+    <string name="default_notification_channel_name" translatable="true">Weather</string>
+    <!-- [END fcm_default_icon_string] -->
+    <string name="msg_subscribe_failed">Failed to subscribe to weather topic</string>
+    <string name="fcm_message">FCM Message</string>
+    <string name="default_notification_channel_id" translatable="false">app.easylink.coronavirus</string>
 </resources>

@@ -1,16 +1,18 @@
-package app.easylink.coronavirus.model;
+package app.easylink.healthMonitor.model;
 
 
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
-import app.easylink.coronavirus.R;
+import app.easylink.healthMonitor.R;
 import io.reactivex.annotations.NonNull;
 
 
 public class PostViewHolder extends RecyclerView.ViewHolder {
-TextView country_name, province_name,last_update, confirm, deaths, recoverd;
+
+    TextView country_name, province_name,last_update, confirm, deaths, recoverd;
+
     public PostViewHolder(@NonNull View itemView) {
         super(itemView);
 

@@ -1,4 +1,4 @@
-package app.easylink.coronavirus;
+package app.easylink.healthMonitor;
 
 import android.os.Bundle;
 

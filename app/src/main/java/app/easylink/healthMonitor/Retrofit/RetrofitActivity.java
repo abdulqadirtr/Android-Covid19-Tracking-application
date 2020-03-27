@@ -1,11 +1,10 @@
-package app.easylink.coronavirus.Retrofit;
+package app.easylink.healthMonitor.Retrofit;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -13,9 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import app.easylink.coronavirus.R;
-import app.easylink.coronavirus.model.Post;
-import app.easylink.coronavirus.model.PostAdapteer;
+import app.easylink.healthMonitor.R;
+import app.easylink.healthMonitor.model.Post;
+import app.easylink.healthMonitor.model.PostAdapteer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
@@ -36,8 +35,6 @@ public class RetrofitActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.retrofit_activity);
-
-
         //calliing Retrofit Api
         Retrofit retrofit=RetrofitClient.getInstance();
         myAPI=retrofit.create(IMyAPI.class);
@@ -54,7 +51,6 @@ public class RetrofitActivity extends AppCompatActivity {
             fetchDat();
         }
         else {
-            Toast.makeText(getApplicationContext(), "Please Connect your Internet", Toast.LENGTH_LONG).show();
             finish();
         }
 
@@ -68,6 +64,7 @@ public class RetrofitActivity extends AppCompatActivity {
                     @Override
                     public void accept(List<Post> posts) throws Exception {
                         displayData(posts);
+
 
                     }
                 }));

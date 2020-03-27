@@ -1,9 +1,9 @@
-package app.easylink.coronavirus.Retrofit;
+package app.easylink.healthMonitor.Retrofit;
 
 
 import java.util.List;
 
-import app.easylink.coronavirus.model.Post;
+import app.easylink.healthMonitor.model.Post;
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 

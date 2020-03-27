@@ -1,4 +1,4 @@
-package app.easylink.coronavirus.ImageSliderActivity;
+package app.easylink.healthMonitor.ImageSliderActivity;
 
 public class Model {
 

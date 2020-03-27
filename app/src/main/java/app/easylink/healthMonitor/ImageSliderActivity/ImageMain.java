@@ -1,4 +1,4 @@
-package app.easylink.coronavirus.ImageSliderActivity;
+package app.easylink.healthMonitor.ImageSliderActivity;
 
 import android.animation.ArgbEvaluator;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-import app.easylink.coronavirus.R;
+import app.easylink.healthMonitor.R;
 
 
 public class ImageMain extends AppCompatActivity {
@@ -21,6 +21,8 @@ public class ImageMain extends AppCompatActivity {
     List<Model> models;
     Integer[] colors = null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,18 +51,23 @@ public class ImageMain extends AppCompatActivity {
         viewPager.setAdapter(myAdapter);
         viewPager.setPadding(130, 0, 130, 0);
 
+        /*
         Integer[] colors_temp = {
-                getResources().getColor(R.color.color1),
+                getResources().getc,
                 getResources().getColor(R.color.color2),
                 getResources().getColor(R.color.color1),
                 getResources().getColor(R.color.color2)
         };
 
-        colors = colors_temp;
+         */
+
+     //   colors = colors_temp;
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+               /*
                 if (position < (myAdapter.getCount() - 1) && position < (colors.length - 1)) {
+
                     viewPager.setBackgroundColor(
 
                             (Integer) argbEvaluator.evaluate(
@@ -72,6 +79,8 @@ public class ImageMain extends AppCompatActivity {
                 } else {
                     viewPager.setBackgroundColor(colors[colors.length - 1]);
                 }
+
+                */
 
             }
             @Override

@@ -1,7 +1,8 @@
-package app.easylink.coronavirus.firebaselogin;
+package app.easylink.healthMonitor.firebaselogin;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,11 +19,12 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import app.easylink.coronavirus.R;
+import app.easylink.healthMonitor.R;
 
 public class ProfileActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     Button logoutBtn;
@@ -33,13 +35,30 @@ public class ProfileActivity extends AppCompatActivity implements GoogleApiClien
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile_activity);
+        setContentView(R.layout.header);
 
-        logoutBtn = findViewById(R.id.logoutBtn);
-        userName = findViewById(R.id.name);
+       // logoutBtn = findViewById(R.id.logoutBtn);
+        userName = findViewById(R.id.userId);
         userEmail = findViewById(R.id.email);
-        userId = findViewById(R.id.userId);
+       // userId = findViewById(R.id.userId);
         profileImage = findViewById(R.id.profileImage);
+        final NavigationView navigationView = (NavigationView) findViewById(R.id.nv);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                int id = menuItem.getItemId();
+
+                 if(id== R.id.close){
+                    System.exit(0);
+                }
+
+                else if(id== R.id.menu){
+                   // dl.closeDrawers();
+                }
+
+                return false;
+            }
+        });
 
         gso =  new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -88,9 +107,10 @@ public class ProfileActivity extends AppCompatActivity implements GoogleApiClien
     }
     private void handleSignInResult(GoogleSignInResult result){
         if(result.isSuccess()){
+
             GoogleSignInAccount account=result.getSignInAccount();
-            userName.setText(account.getDisplayName());
-            userEmail.setText(account.getEmail());
+            userName.setText(account.getDisplayName().toString());
+            userEmail.setText(account.getEmail().toString());
             userId.setText(account.getId());
             try{
                 Glide.with(this).load(account.getPhotoUrl()).into(profileImage);
@@ -99,6 +119,7 @@ public class ProfileActivity extends AppCompatActivity implements GoogleApiClien
             }
 
         }else{
+            Toast.makeText(getApplicationContext(),"Fail to get data", Toast.LENGTH_LONG).show();
             gotoMainActivity();
         }
     }
@@ -110,4 +131,5 @@ public class ProfileActivity extends AppCompatActivity implements GoogleApiClien
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+
 }

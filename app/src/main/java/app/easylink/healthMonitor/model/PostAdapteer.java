@@ -1,4 +1,4 @@
-package app.easylink.coronavirus.model;
+package app.easylink.healthMonitor.model;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
-import app.easylink.coronavirus.R;
+import app.easylink.healthMonitor.R;
 import io.reactivex.annotations.NonNull;
 
 
@@ -42,9 +42,10 @@ public class PostAdapteer extends RecyclerView.Adapter<PostViewHolder> {
 
         SharedPreferences pref = context.getSharedPreferences("MyPref", 0); // 0 - for private mode
         SharedPreferences.Editor editor = pref.edit();
-
         editor.putString("name", postList.get(position).getCountryregion()+" has "+postList.get(position).getConfirmed()); // Storing string
         editor.commit();
+
+
 
         //holder.txt_content.setText(new StringBuilder(postList.get(position).body.substring(0,2))
         //.append("...").toString());

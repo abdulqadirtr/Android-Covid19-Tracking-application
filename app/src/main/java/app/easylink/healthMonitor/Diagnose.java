@@ -1,15 +1,15 @@
-package app.easylink.coronavirus;
+package app.easylink.healthMonitor;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,16 +21,21 @@ public class Diagnose extends AppCompatActivity implements AdapterView.OnItemSel
     String[] headache = {"", "Always", "Never", "Oftenly"};
     String[] soarthroat = {"", "Yes", "No"};
     String[] chestPain = {"", "Yes", "No"};
+    String[] gender = {"", "Mail", "Female"};
+    String[] age = {"", "12 to 18", "18 to 24", "24 to 40", "above 40"};
+
     Button submit;
     boolean fever_check, cought_check, shortbreath_check, headache_check, soarthroat_check, chestPain_check;
 
     boolean check1, check2, check3, check4, check5, check6;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diagnose_activity);
-
         submit = (Button) findViewById(R.id.submit);
 
         // show it
@@ -42,6 +47,8 @@ public class Diagnose extends AppCompatActivity implements AdapterView.OnItemSel
         Spinner spinner_headache = (Spinner) findViewById(R.id.headach);
         Spinner spinner_throat = (Spinner) findViewById(R.id.throat);
         Spinner spinner_pain = (Spinner) findViewById(R.id.chestpain);
+        Spinner spinner_gender = (Spinner) findViewById(R.id.spinner_gender);
+        Spinner spinner_age = (Spinner) findViewById(R.id.spinner_age);
 
         // Spinner click listener
         spinner_cough.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -57,10 +64,11 @@ public class Diagnose extends AppCompatActivity implements AdapterView.OnItemSel
                 } else if (item.equals("Never")) {
                     check2 = false;
                     cought_check = false;
-                    Toast.makeText(parent.getContext(), "YOu select: " + item, Toast.LENGTH_LONG).show();
+
                 } else if (item.equals("Oftenly")) {
+                    check2 = false;
                     cought_check = true;
-                    // Toast.makeText(parent.getContext(), "Please Select the option: " + item, Toast.LENGTH_LONG).show();
+
                 } else {
                     check2 = true;
                 }
@@ -83,9 +91,9 @@ public class Diagnose extends AppCompatActivity implements AdapterView.OnItemSel
                 } else if (item.equals("No")) {
                     check3 = false;
                     shortbreath_check = false;
-                    Toast.makeText(parent.getContext(), "You select: " + item, Toast.LENGTH_LONG).show();
                 } else {
                     check3 = true;
+
                 }
             }
 
@@ -105,8 +113,7 @@ public class Diagnose extends AppCompatActivity implements AdapterView.OnItemSel
                     headache_check = true;
                 } else if (item.equals("Never")) {
                     check4 = false;
-                    headache_check = true;
-                    Toast.makeText(parent.getContext(), "YOu select: " + item, Toast.LENGTH_LONG).show();
+                    headache_check = false;
                 } else if (item.equals("Oftenly")) {
                     check4 = false;
                     headache_check = true;
@@ -133,7 +140,6 @@ public class Diagnose extends AppCompatActivity implements AdapterView.OnItemSel
                 } else if (item.equals("No")) {
                     check5 = false;
                     soarthroat_check = false;
-                    Toast.makeText(parent.getContext(), "YOu select: " + item, Toast.LENGTH_LONG).show();
                 } else {
                     check5 = true;
                 }
@@ -157,7 +163,6 @@ public class Diagnose extends AppCompatActivity implements AdapterView.OnItemSel
                 } else if (item.equals("No")) {
                     check6 = false;
                     chestPain_check = false;
-                    Toast.makeText(parent.getContext(), "YOu select: " + item, Toast.LENGTH_LONG).show();
                 } else {
                     check6 = true;
                 }
@@ -182,6 +187,7 @@ public class Diagnose extends AppCompatActivity implements AdapterView.OnItemSel
                     check1 = false;
                 } else {
                     check1 = true;
+                    fever_check = true;
                 }
             }
 
@@ -199,6 +205,9 @@ public class Diagnose extends AppCompatActivity implements AdapterView.OnItemSel
         ArrayAdapter<String> headachAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, headache);
         ArrayAdapter<String> throatAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, soarthroat);
         ArrayAdapter<String> pain = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, chestPain);
+        ArrayAdapter<String> ageAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, age);
+        ArrayAdapter<String> genderAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, gender);
+
 
 
         // Drop down layout style - list view with radio button
@@ -217,6 +226,9 @@ public class Diagnose extends AppCompatActivity implements AdapterView.OnItemSel
         spinner_headache.setAdapter(headachAdapter);
         spinner_throat.setAdapter(throatAdapter);
         spinner_pain.setAdapter(pain);
+        spinner_age.setAdapter(ageAdapter);
+        spinner_gender.setAdapter(genderAdapter);
+
 
 
         dataAdapter.notifyDataSetChanged();
@@ -227,7 +239,7 @@ public class Diagnose extends AppCompatActivity implements AdapterView.OnItemSel
         // setup the alert builder
         AlertDialog.Builder builder = new AlertDialog.Builder(Diagnose.this);
         if (check1 == true || check2 == true || check3 == true || check4 == true || check5 == true || check6 == true) {
-            builder.setTitle("Missing Fields.");
+            builder.setTitle("Missing Fields");
             builder.setMessage("For diagnose please select all the field");
             // add the buttons
             builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
@@ -248,155 +260,312 @@ public class Diagnose extends AppCompatActivity implements AdapterView.OnItemSel
             builder.setTitle("There is a possibility that You might be Infected.");
             builder.setMessage("You might be infected with Cronavirus, we suggest you to consult your doctor.");
             // add the buttons
-            builder.setPositiveButton("Continue", null);
-            builder.setNegativeButton("Cancel", null);
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+            });
             builder.setIcon(R.drawable.warning);
+            builder.setCancelable(false);
             // create and show the alert dialog
             AlertDialog dialog = builder.create();
             dialog.show();
+
+            pref = getApplicationContext().getSharedPreferences("infected", 0); // 0 - for private mode
+            editor = pref.edit();
+            editor.putString("virus", "Consult Your Doctor"); // Storing string
+            editor.commit();
+
+
+        }
+        else if (cought_check == false && fever_check == false && shortbreath_check == false && chestPain_check == false && soarthroat_check == false && headache_check == false) {
+            builder.setTitle("The result shows that you are safe.");
+            builder.setMessage("Your symptoms does not match the Cronavirus Symptoms, but we suggest you to regularly check with your doctor if you have any problem");
+            // add the buttons     // add the buttons
+            builder.setCancelable(false);
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+            });
+            builder.setIcon(R.drawable.safe);
+            // create and show the alert dialog
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+            pref = getApplicationContext().getSharedPreferences("infected", 0); // 0 - for private mode
+            editor = pref.edit();
+            editor.putString("virus", "No Virus Detected"); // Storing string
+            editor.commit();
+
         }
         else if (cought_check == true && fever_check == true && shortbreath_check == true && chestPain_check == true && soarthroat_check == true && headache_check == true) {
             builder.setTitle("The result Indicates that you might be Infected.");
             builder.setMessage("Your symptoms does not match the Cronavirus Symptoms, but we suggest you to regularly check with your doctor if you have any problem");
             // add the buttons
-            builder.setPositiveButton("Continue", null);
-            builder.setNegativeButton("Cancel", null);
+            builder.setCancelable(false);
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+            });
             builder.setIcon(R.drawable.warning);
             // create and show the alert dialog
             AlertDialog dialog = builder.create();
             dialog.show();
+            pref = getApplicationContext().getSharedPreferences("infected", 0); // 0 - for private mode
+            editor = pref.edit();
+            editor.putString("Virus", "Warning, Infected"); // Storing string
+            editor.commit();
         } else if (cought_check == true && fever_check == true && shortbreath_check == true && chestPain_check == true && soarthroat_check == true) {
             builder.setTitle("The result Indicates that you might be Infected.");
             builder.setMessage("Your symptoms does not match the Cronavirus Symptoms, but we suggest you to regularly check with your doctor if you have any problem");
-            // add the buttons
-            builder.setPositiveButton("Continue", null);
+            builder.setCancelable(false);
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+            });
+
+
+
             builder.setIcon(R.drawable.warning);
-            builder.setNegativeButton("Cancel", null);
-            // create and show the alert dialog
             AlertDialog dialog = builder.create();
             dialog.show();
+
+            pref = getApplicationContext().getSharedPreferences("infected", 0); // 0 - for private mode
+            editor = pref.edit();
+            editor.putString("virus", "Warning, Infected"); // Storing string
+            editor.commit();
         } else if (cought_check == true && fever_check == true && shortbreath_check == true && chestPain_check == true) {
             builder.setTitle("The result Indicates that you might be Infected.");
             builder.setMessage("Your symptoms does not match the Cronavirus Symptoms, but we suggest you to regularly check with your doctor if you have any problem");
             // add the buttons
-            builder.setPositiveButton("Continue", null);
-            builder.setNegativeButton("Cancel", null);
+            builder.setCancelable(false);
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+            });
             builder.setIcon(R.drawable.warning);
             // create and show the alert dialog
             AlertDialog dialog = builder.create();
             dialog.show();
+
+            pref = getApplicationContext().getSharedPreferences("infected", 0); // 0 - for private mode
+            editor = pref.edit();
+            editor.putString("virus", "Warning, Infected"); // Storing string
+            editor.commit();
         }
 
         else if (cought_check == true && fever_check == true && shortbreath_check == true) {
             builder.setTitle("The result Indicates that you might be Infected.");
             builder.setMessage("Your symptoms does not match the Cronavirus Symptoms, but we suggest you to regularly check with your doctor if you have any problem");
-            // add the buttons
-            builder.setPositiveButton("Continue", null);
-            builder.setNegativeButton("Cancel", null);
+            builder.setCancelable(false);
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+            });
             builder.setIcon(R.drawable.warning);
             // create and show the alert dialog
             AlertDialog dialog = builder.create();
             dialog.show();
+
+            pref = getApplicationContext().getSharedPreferences("infected", 0); // 0 - for private mode
+            editor = pref.edit();
+            editor.putString("virus", "Warning, Infected"); // Storing string
+            editor.commit();
         } else if (cought_check == true && fever_check == true) {
             builder.setTitle("The result Indicates that you might be Infected.");
             builder.setMessage("Your symptoms does not match the Cronavirus Symptoms, but we suggest you to regularly check with your doctor if you have any problem");
-            // add the buttons
-            builder.setPositiveButton("Continue", null);
-            builder.setNegativeButton("Cancel", null);
+            builder.setCancelable(false);
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+            });
             builder.setIcon(R.drawable.warning);
             // create and show the alert dialog
             AlertDialog dialog = builder.create();
             dialog.show();
-        } else if (cought_check == false && fever_check == false && shortbreath_check == false && chestPain_check == false && soarthroat_check == false && headache_check == false) {
-            builder.setTitle("The result shows that you are safe.");
-            builder.setMessage("Your symptoms does not match the Cronavirus Symptoms, but we suggest you to regularly check with your doctor if you have any problem");
-            // add the buttons     // add the buttons
-            builder.setPositiveButton("Continue", null);
-            builder.setNegativeButton("Cancel", null);
-            builder.setIcon(R.drawable.safe);
-            // create and show the alert dialog
-            AlertDialog dialog = builder.create();
-            dialog.show();
+
+            pref = getApplicationContext().getSharedPreferences("infected", 0); // 0 - for private mode
+            editor = pref.edit();
+            editor.putString("virus", "Alert! Cronavirus Symptom"); // Storing string
+            editor.commit();
         } else if (cought_check == false && fever_check == false && shortbreath_check == false && chestPain_check == false && soarthroat_check == false) {
             builder.setTitle("The result shows that you are safe.");
             builder.setMessage("Your symptoms does not match the Cronavirus Symptoms, but we suggest you to regularly check with your doctor if you have any problem");
-            // add the buttons     // add the buttons
-            builder.setPositiveButton("Continue", null);
-            builder.setNegativeButton("Cancel", null);
+            builder.setCancelable(false);
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                    Diagnose.this.finish();
+                }
+            });
             builder.setIcon(R.drawable.safe);
             // create and show the alert dialog
             AlertDialog dialog = builder.create();
             dialog.show();
+            pref = getApplicationContext().getSharedPreferences("infected", 0); // 0 - for private mode
+            editor = pref.edit();
+            editor.putString("virus", "No Virus Detected"); // Storing string
+            editor.commit();
         } else if (cought_check == false && fever_check == false && shortbreath_check == false && chestPain_check == false) {
             builder.setTitle("The result shows that you are safe.");
             builder.setMessage("Your symptoms does not match the Cronavirus Symptoms, but we suggest you to regularly check with your doctor if you have any problem");
-            // add the buttons     // add the buttons
-            builder.setPositiveButton("Continue", null);
-            builder.setNegativeButton("Cancel", null);
+            builder.setCancelable(false);
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+            });
             builder.setIcon(R.drawable.safe);
             // create and show the alert dialog
             AlertDialog dialog = builder.create();
             dialog.show();
+            pref = getApplicationContext().getSharedPreferences("infected", 0); // 0 - for private mode
+            editor = pref.edit();
+            editor.putString("virus", "No Virus Detected"); // Storing string
+            editor.commit();
+
         } else if (cought_check == false && fever_check == false && shortbreath_check == false) {
             builder.setTitle("The result shows that you are safe.");
             builder.setMessage("Your symptoms does not match the Cronavirus Symptoms, but we suggest you to regularly check with your doctor if you have any problem");
-            // add the buttons     // add the buttons
-            builder.setPositiveButton("Continue", null);
-            builder.setNegativeButton("Cancel", null);
+            builder.setCancelable(false);
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+            });
             builder.setIcon(R.drawable.safe);
             // create and show the alert dialog
             AlertDialog dialog = builder.create();
             dialog.show();
+            pref = getApplicationContext().getSharedPreferences("infected", 0); // 0 - for private mode
+            editor = pref.edit();
+            editor.putString("virus", "No Virus Detected"); // Storing string
+            editor.commit();
         } else if (cought_check == false && fever_check == false && shortbreath_check == true) {
             builder.setTitle("The result shows that You might be Infected.");
             builder.setMessage("There is a possiblity that you might be infected with Cronavirus, we suggest you to consult your doctor.");
-            // add the buttons
-            builder.setPositiveButton("Continue", null);
-            builder.setNegativeButton("Cancel", null);
+            builder.setCancelable(false);
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+            });
             builder.setIcon(R.drawable.warning);
             // create and show the alert dialog
             AlertDialog dialog = builder.create();
             dialog.show();
+
+            pref = getApplicationContext().getSharedPreferences("infected", 0); // 0 - for private mode
+            editor = pref.edit();
+            editor.putString("virus", "Alert! Cronavirus Symptom"); // Storing string
+            editor.commit();
         } else if (cought_check == true && fever_check == true) {
             builder.setTitle("You might be infected.");
             builder.setMessage("There is a possiblity that you might be infected with Cronavirus, we suggest you to consult your doctor.");
-            // add the buttons
-            builder.setPositiveButton("Continue", null);
-            builder.setNegativeButton("Cancel", null);
+            builder.setCancelable(false);
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+            });
             builder.setIcon(R.drawable.warning);
             // create and show the alert dialog
             AlertDialog dialog = builder.create();
             dialog.show();
+
+            pref = getApplicationContext().getSharedPreferences("infected", 0); // 0 - for private mode
+            editor = pref.edit();
+            editor.putString("virus", "Alert! Cronavirus Symptom"); // Storing string
+            editor.commit();
         } else if (headache_check == true || chestPain_check == true) {
             builder.setTitle("The result shows that You may be Infected.");
             builder.setMessage("There is a possiblity that you might be infected with Cronavirus, we suggest you to consult your doctor.");
             // add the buttons
-            builder.setPositiveButton("Continue", null);
-            builder.setNegativeButton("Cancel", null);
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+            });
+          //  builder.setNegativeButton("Cancel", null);
             builder.setIcon(R.drawable.warning);
             // create and show the alert dialog
             AlertDialog dialog = builder.create();
             dialog.show();
+            pref = getApplicationContext().getSharedPreferences("infected", 0); // 0 - for private mode
+            editor = pref.edit();
+            editor.putString("virus", "Alert! Cronavirus Symptom"); // Storing string
+            editor.commit();
         } else if (fever_check == true || shortbreath_check == true) {
             builder.setTitle("The result shows that You may be Infected.");
             builder.setMessage("There is a possiblity that you might be infected with Cronavirus, we suggest you to consult your doctor.");
-            // add the buttons
-            builder.setPositiveButton("Continue", null);
-            builder.setNegativeButton("Cancel", null);
+            builder.setCancelable(false);
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+            });
             builder.setIcon(R.drawable.warning);
             // create and show the alert dialog
             AlertDialog dialog = builder.create();
             dialog.show();
+            pref = getApplicationContext().getSharedPreferences("infected", 0); // 0 - for private mode
+            editor = pref.edit();
+            editor.putString("virus", "Alert! Cronavirus Symptom"); // Storing string
+            editor.commit();
         }  else {
             builder.setTitle("The result shows that You may be Infected.");
             builder.setMessage("There is a possiblity that you might be infected with Cronavirus, we suggest you to consult your doctor.");
-            // add the buttons
-            builder.setPositiveButton("Continue", null);
-            builder.setNegativeButton("Cancel", null);
+            builder.setCancelable(false);
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+            });
             builder.setIcon(R.drawable.warning);
             // create and show the alert dialog
             AlertDialog dialog = builder.create();
             dialog.show();
+
+            pref = getApplicationContext().getSharedPreferences("infected", 0); // 0 - for private mode
+            editor = pref.edit();
+            editor.putString("virus", "Alert! Cronavirus Symptom"); // Storing string
+            editor.commit();
 
         }
 
@@ -415,7 +584,6 @@ public class Diagnose extends AppCompatActivity implements AdapterView.OnItemSel
         } else if (item.equals("No")) {
             check6 = false;
             fever_check = false;
-            Toast.makeText(parent.getContext(), "YOu select: " + item, Toast.LENGTH_LONG).show();
         } else {
             check6 = true;
         }
@@ -424,6 +592,12 @@ public class Diagnose extends AppCompatActivity implements AdapterView.OnItemSel
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
     }
 }
 
