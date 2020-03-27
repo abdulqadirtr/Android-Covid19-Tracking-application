@@ -17,7 +17,18 @@ Firebase Login
 FireBase Notification
                          
 3. **Description and Screenshots**
+
+![Login Screen]
+(https://github.com/abdulqadirtr/JavaAndroid_cronavirus_health/blob/master/app/src/main/res/drawable/screen_5.png)
+
+
 ![Applicatoin MainMenu](https://github.com/abdulqadirtr/JavaAndroid_cronavirus_health/blob/master/app/src/main/res/drawable/screen_1.png)
+
+
+![Live Stats Data]
+(https://github.com/abdulqadirtr/JavaAndroid_cronavirus_health/blob/master/app/src/main/res/drawable/screen_3.png)
+
+
 
 **Whether the solution focuses on mobile, back-end, front-end or if it's full-stack?
 The application provides smooth solution for full-stack.**
