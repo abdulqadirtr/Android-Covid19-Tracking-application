@@ -28,6 +28,7 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-6951495088180359~8091087050"/>
 
+
         <activity android:name=".firebaselogin.Signup">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

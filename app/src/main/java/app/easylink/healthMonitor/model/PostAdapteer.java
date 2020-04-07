@@ -5,7 +5,10 @@ import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,14 +16,16 @@ import app.easylink.healthMonitor.R;
 import io.reactivex.annotations.NonNull;
 
 
-public class PostAdapteer extends RecyclerView.Adapter<PostViewHolder> {
+public class PostAdapteer extends RecyclerView.Adapter<PostViewHolder> implements Filterable {
 
     Context context;
     List<Post> postList;
+    private List<Post> exampleListFull;
 
     public PostAdapteer(Context context, List<Post> postList) {
         this.context = context;
         this.postList = postList;
+        exampleListFull = new ArrayList<>(postList);
     }
 
     @NonNull
@@ -56,4 +61,47 @@ public class PostAdapteer extends RecyclerView.Adapter<PostViewHolder> {
     public int getItemCount() {
         return postList.size();
     }
-}
+
+    @Override
+    public Filter getFilter() {
+        return exampleFilter;
+    }
+
+    private Filter exampleFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            constraint = constraint.toString().toLowerCase();
+            FilterResults result = new FilterResults();
+            List<Post> filteredList = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0) {
+
+                filteredList.addAll(exampleListFull);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for (Post item : exampleListFull) {
+                    if (item.getCountryregion().toString().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+
+            postList.clear();
+            postList.addAll((List<Post>) results.values);
+            notifyDataSetChanged();
+
+
+        }
+    };
+
+    }

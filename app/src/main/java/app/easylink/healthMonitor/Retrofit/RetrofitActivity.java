@@ -1,15 +1,21 @@
 package app.easylink.healthMonitor.Retrofit;
 
+import android.app.SearchManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ListView;
 
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import app.easylink.healthMonitor.R;
@@ -26,6 +32,7 @@ public class RetrofitActivity extends AppCompatActivity {
 
     ListView mListView1;
     ListView mListView2;
+    PostAdapteer adapteer;
     IMyAPI myAPI;
     RecyclerView recyler_posts;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
@@ -71,8 +78,42 @@ public class RetrofitActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R. menu.filter_menu, menu);
+        MenuItem searchItem = menu.findItem(R. id.action_search);
+        SearchView searchView = (SearchView)
+                searchItem.getActionView();
+        searchView.setIconifiedByDefault(true);
+
+
+
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+       // SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                adapteer.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+               // adapter.getFilter().filter(newText);
+                // filter recycler view when query submitted
+                adapteer.getFilter().filter(newText);
+                return false;
+            }
+
+
+        });
+        return true;
+    }
+
+
     private void displayData(List<Post> posts) {
-        PostAdapteer adapteer=new PostAdapteer(this,posts);
+        adapteer=new PostAdapteer(this,posts);
         recyler_posts.setAdapter(adapteer);
 
     }
@@ -82,6 +123,9 @@ public class RetrofitActivity extends AppCompatActivity {
         compositeDisposable.clear();
         super.onStop();
     }
+
+
+
     }
 
 
