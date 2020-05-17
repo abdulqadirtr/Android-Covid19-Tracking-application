@@ -50,6 +50,9 @@ The application is managing threads and avoid using main threads for different t
 **Application Overview**
 The application is a small contribution against the fight for COVID19.
 
+# ApK Download Link
+https://drive.google.com/open?id=1TpzT1kmMqjzGP1WWPZMbbTApnqkxTsJP
+
  # Linkedin Profile:
  www.linkedin.com/in/abdul-qadir-009607bb
  
