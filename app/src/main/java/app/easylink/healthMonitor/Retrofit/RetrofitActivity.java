@@ -1,7 +1,5 @@
 package app.easylink.healthMonitor.Retrofit;
-
-import android.app.SearchManager;
-import android.content.ComponentName;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -11,9 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ListView;
-
 import java.util.List;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,12 +32,19 @@ public class RetrofitActivity extends AppCompatActivity {
     IMyAPI myAPI;
     RecyclerView recyler_posts;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
+    ProgressDialog progressBar;
 
     //calliing Retrofit Api
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.retrofit_activity);
+
+        progressBar = new ProgressDialog(this);
+        progressBar.setMessage("Loading....");
+        progressBar.show();
+
+
         //calliing Retrofit Api
         Retrofit retrofit=RetrofitClient.getInstance();
         myAPI=retrofit.create(IMyAPI.class);
@@ -70,14 +73,14 @@ public class RetrofitActivity extends AppCompatActivity {
                 .subscribe(new Consumer<List<Post>>() {
                     @Override
                     public void accept(List<Post> posts) throws Exception {
+                        progressBar.dismiss();
                         displayData(posts);
-
-
                     }
                 }));
 
     }
 
+    //for Searching Value from GSON Files
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R. menu.filter_menu, menu);
@@ -85,9 +88,6 @@ public class RetrofitActivity extends AppCompatActivity {
         SearchView searchView = (SearchView)
                 searchItem.getActionView();
         searchView.setIconifiedByDefault(true);
-
-
-
         searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
        // SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
