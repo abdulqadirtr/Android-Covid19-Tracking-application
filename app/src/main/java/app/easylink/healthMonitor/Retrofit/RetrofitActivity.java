@@ -64,6 +64,7 @@ public class RetrofitActivity extends AppCompatActivity {
             finish();
         }
 
+
     }
 
     private void fetchDat() {
