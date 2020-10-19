@@ -1,12 +1,12 @@
 # COVID_19 Live Stats data and Safety Guide
-An application for ive stats data and safety guide of COVID_19/Coronavirus, with getting live data from around the world.
+An application for Live stats data and safety guide of COVID_19/Coronavirus, with getting live data from around the world.
 using retrofit, cardview, RecylerView, firebase Login, Firebase Notification System, Navigation bar 
 
 
  **Description for the problem.**
  
  1. **Introduction:**
-This is a Java android application for tracking CoronaVirus infected, recovered and dead people areound the world, the application is getting Live data from Web Api of Wuhan City which is open soruch through the following link https://wuhan-coronavirus-api.laeyoung.endpoint.ainize.ai/jhu-edu/latest. 
+This is a Java android application for tracking COVID19 infected, recovered and dead cases around the world, the application is getting Live data from Web Api of Wuhan City which is open soruch through the following link https://wuhan-coronavirus-api.laeyoung.endpoint.ainize.ai/jhu-edu/latest. 
 
  2. **FrameWork and Technologies Used:**
 Retrofit
