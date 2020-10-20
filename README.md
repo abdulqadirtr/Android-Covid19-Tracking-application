@@ -48,7 +48,7 @@ The application is managing threads and avoid using main threads for different t
                                   **********************************************
                                   
 **Application Overview**
-The application is a small contribution against the fight for COVID19.
+The application is a small contribution for the News applications.
 
 # ApK Download Link
 https://drive.google.com/open?id=1TpzT1kmMqjzGP1WWPZMbbTApnqkxTsJP
